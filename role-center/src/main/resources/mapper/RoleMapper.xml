@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.role.dao.RoleMapper">
+
+
+    <resultMap id="roleMap" type="com.demo.comon.entity.RolePo">
+        <id column="role_id" property="roleId"></id>
+        <result column="role_name" property="roleName"></result>
+        <result column="role_detail" property="roleDetail"></result>
+    </resultMap>
+
+    <insert id="addRole">
+        insert into tab_role(role_name,role_detail)
+        values (#{rolePo.roleName},#{rolePo.roleDetail})
+    </insert>
+    <update id="updateRoleName">
+        update tab_role
+        set role_name = #{rolePo.roleName}
+        where role_id = #{rolePo.roleId}
+    </update>
+    <update id="updateRoleDetail">
+        update tab_role
+        set role_detail = #{rolePo.roleDetail}
+        where role_id = #{rolePo.roleId}
+    </update>
+    <select id="findAll" resultMap="roleMap">
+        select * from tab_role
+    </select>
+    <select id="findByUserId" resultMap="roleMap">
+        select r.* from tab_user_and_role t
+        left join tab_role r
+        on t.role_id = r.role_id
+        where t.user_id = #{userId}
+    </select>
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.permission.dao.PermissionMapper">
+    <insert id="addPermission">
+        insert into tab_permission(permission_url,permission_detail)
+        values (#{permissionPo.permissionUrl},#{permissionPo.permissionDetail})
+    </insert>
+    <update id="updatePermissionUrl">
+        update tab_permission
+        set permission_url = #{permissionPo.permissionUrl}
+        where permission_id = #{permissionPo.permissionId}
+    </update>
+    <update id="updatePermissionDetail">
+        update tab_permission
+        set permission_detail = #{permissionPo.permissionDetail}
+        where permission_id = #{permissionPo.permissionId}
+    </update>
+
+    <resultMap id="permissionMap" type="com.demo.comon.entity.PermissionPo">
+        <id property="permissionId" column="permission_id"></id>
+        <result property="permissionUrl" column="permission_url"></result>
+        <result property="permissionDetail" column="permission_detail"></result>
+    </resultMap>
+
+    <select id="findAll" resultMap="permissionMap">
+        select * from tab_permission
+    </select>
+    <select id="findByRoleId" resultMap="permissionMap">
+        select t.* from tab_role_and_permission p
+        left join  tab_permission t
+        on p.permission_id = t.permission_id
+        where t.role_id = #{roleId}
+    </select>
+</mapper>
