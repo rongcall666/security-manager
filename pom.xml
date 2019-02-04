@@ -15,7 +15,7 @@
         <version>1.5.15.RELEASE</version>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>security</artifactId>
+    <artifactId>security-manager</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
     <description>Demo project for Spring Boot</description>
