@@ -16,7 +16,6 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleMapper roleMapper;
 
-    @Override
     public boolean addRole(String roleName, String roleDetail) {
         if (roleDetail != null && roleName != null) {
             RolePo rolePo = new RolePo();
@@ -28,7 +27,6 @@ public class RoleServiceImpl implements RoleService {
         return false;
     }
 
-    @Override
     public boolean updateRoleName(Integer roleId, String roleName) {
         if (roleName != null && roleId != null) {
             RolePo rolePo = new RolePo();
@@ -40,7 +38,6 @@ public class RoleServiceImpl implements RoleService {
         return false;
     }
 
-    @Override
     public boolean updateRoleDetail(Integer roleId, String roleDetail) {
         if (roleDetail != null && roleId != null) {
             RolePo rolePo = new RolePo();
@@ -52,13 +49,20 @@ public class RoleServiceImpl implements RoleService {
         return false;
     }
 
-    @Override
     public List<RolePo> findAll() {
         return roleMapper.findAll();
     }
 
-    @Override
     public List<RolePo> findByUserId(Integer userId) {
         return roleMapper.findByUserId(userId);
     }
+
+    public boolean UserAddRole(Integer userId, Integer roleId) {
+        if(userId != null && roleId != null){
+            roleMapper.UserAddRole(userId,roleId);
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -45,4 +45,7 @@ public interface PermissionService {
      * @return
      */
     List<PermissionPo> findByRoleId(Integer roleId);
+
+
+    boolean addPermissionForRole(Integer roleId,Integer permissionId);
 }

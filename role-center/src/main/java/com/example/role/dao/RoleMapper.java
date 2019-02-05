@@ -43,4 +43,5 @@ public interface RoleMapper {
      */
     List<RolePo> findByUserId(@Param("userId") Integer userId);
 
+    void UserAddRole(@Param("userId") Integer userId, @Param("roleId") Integer roleId);
 }

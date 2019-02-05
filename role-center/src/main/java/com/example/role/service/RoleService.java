@@ -47,4 +47,13 @@ public interface RoleService {
      * @return
      */
     List<RolePo> findByUserId(Integer userId);
+
+
+    /**
+     * 给用户新增角色
+     * @param userId
+     * @param roleId
+     * @return
+     */
+    boolean UserAddRole(Integer userId,Integer roleId);
 }

@@ -5,6 +5,10 @@
         insert into tab_permission(permission_url,permission_detail)
         values (#{permissionPo.permissionUrl},#{permissionPo.permissionDetail})
     </insert>
+    <insert id="addPermissionForRole">
+        insert into tab_role_and_permission
+        values(#{roleId},#{permissionId})
+    </insert>
     <update id="updatePermissionUrl">
         update tab_permission
         set permission_url = #{permissionPo.permissionUrl}

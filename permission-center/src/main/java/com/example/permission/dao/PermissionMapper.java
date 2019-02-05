@@ -42,4 +42,6 @@ public interface PermissionMapper {
      * @param roleId
      */
     List<PermissionPo> findByRoleId(@Param("roleId") Integer roleId);
+
+    void addPermissionForRole(@Param("roleId") Integer roleId, @Param("permissionId") Integer permissionId);
 }

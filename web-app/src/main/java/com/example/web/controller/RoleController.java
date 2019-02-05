@@ -71,4 +71,13 @@ public class RoleController {
     }
 
 
+    @ResponseBody
+    @PostMapping("/    public String addUserByRoole(Integer userId,Integer roleId){\n")
+    public String addUserByRoole(Integer userId,Integer roleId){
+        if(roleService.UserAddRole(userId,roleId)){
+            return "success";
+        }
+        return "error";
+    }
+
 }

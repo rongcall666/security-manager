@@ -13,6 +13,10 @@
         insert into tab_role(role_name,role_detail)
         values (#{rolePo.roleName},#{rolePo.roleDetail})
     </insert>
+    <insert id="UserAddRole">
+        insert into tab_user_and_role(user_id,role_id)
+        values (#{userId},#{roleId})
+    </insert>
     <update id="updateRoleName">
         update tab_role
         set role_name = #{rolePo.roleName}

@@ -68,4 +68,13 @@ public class PermissionController {
     public List<PermissionPo> findByRoleId(Integer roleId) {
         return permissionService.findByRoleId(roleId);
     }
+
+    @ResponseBody
+    @PostMapping("/addUserByRoole")
+    public String addUserByRoole(Integer roleId,Integer permission){
+        if(permissionService.addPermissionForRole(roleId,permission)){
+            return "success";
+        }
+        return "error";
+    }
 }
